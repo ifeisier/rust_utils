@@ -1,0 +1,8 @@
+[package]
+name = "rust_utils"
+version = "0.1.0"
+edition = "2021"
+authors = ["ifeisier"]
+description = "Rust 工具库"
+
+[dependencies]
