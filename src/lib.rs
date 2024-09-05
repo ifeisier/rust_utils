@@ -4,3 +4,6 @@
 
 #[cfg(feature = "logger")]
 pub mod logger;
+
+#[cfg(feature = "rand")]
+pub mod rand;
