@@ -9,10 +9,7 @@ use reqwest::{
 };
 use std::sync::LazyLock;
 
-static CLIENT: LazyLock<Client> = LazyLock::new(|| {
-    let client = Client::new();
-    CLIENT.set(client).unwrap();
-});
+static CLIENT: LazyLock<Client> = LazyLock::new(|| Client::new());
 
 /// 配置 Request
 fn config_request(request: RequestBuilder) -> RequestBuilder {
@@ -27,7 +24,6 @@ fn config_request(request: RequestBuilder) -> RequestBuilder {
 
 /// 发送 GET 请求
 pub async fn get(url: &str) -> Result<String> {
-    let client = CLIENT.get().expect("Client is not initialized");
-    let request = config_request(client.get(url));
+    let request = config_request(CLIENT.get(url));
     Ok(request.send().await?.text().await?)
 }

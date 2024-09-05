@@ -10,12 +10,16 @@ license = "MIT"
 [dependencies]
 anyhow = "1.0.86"
 thiserror = "1.0.63"
+serde = { version = "1.0.204", default-features = false, features = ["derive"] }
+serde_json = "1.0.128"
+
 log = { version = "0.4.22", optional = true }
 flexi_logger = { version = "0.29.0", optional = true }
 rand = { version = "0.8.5", optional = true }
 reqwest = { version = "0.12.5", features = ["blocking", "json"], optional = true }
 
 [features]
+default = []
 logger_ext = ["log", "flexi_logger"]
 rand_ext = ["rand"]
 reqwest_ext = ["reqwest"]
