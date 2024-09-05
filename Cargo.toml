@@ -16,4 +16,4 @@ rand = { version = "0.8.5", optional = true }
 
 [features]
 logger = ["log", "flexi_logger"]
-rand = ["rand"]
+randx = ["rand"]
