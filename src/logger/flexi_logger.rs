@@ -2,7 +2,7 @@
 //!
 //! 通过环境变量初始化:
 //! - LOG_LEVEL: 设置日志级别, 默认 info 级别.
-//! - LOG_FILE_SIZE: 单个日志文件大小, 默认 2097152 = 2 byte.
+//! - LOG_FILE_SIZE: 单个日志文件大小, 默认 2097152 = 2 MB.
 //! - LOG_NAME: 日志名字, 默认 log_name.
 
 use anyhow::Result;
