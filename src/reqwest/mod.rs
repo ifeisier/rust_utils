@@ -27,3 +27,10 @@ pub async fn get(url: &str) -> Result<String> {
     let request = config_request(CLIENT.get(url));
     Ok(request.send().await?.text().await?)
 }
+
+/// 发送 POST 请求, 消息体为 json
+pub async fn post_json(url: &str, json_data: &str) -> Result<String> {
+    let mut request = config_request(CLIENT.post(url));
+    request = request.json(json_data);
+    Ok(request.send().await?.text().await?)
+}
