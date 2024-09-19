@@ -8,7 +8,7 @@ repository = "https://github.com/ifeisier/rust_utils"
 license = "MIT"
 
 [dependencies]
-anyhow = "1.0.88"
+anyhow = "1.0.89"
 thiserror = "1.0.63"
 serde = { version = "1.0.210", default-features = false, features = ["derive"] }
 serde_json = "1.0.128"
