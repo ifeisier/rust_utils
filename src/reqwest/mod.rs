@@ -31,7 +31,11 @@ pub async fn get(url: &str) -> Result<String> {
 /// 发送 POST 请求, 消息体为 json
 pub async fn post_json(url: &str, json_data: &str) -> Result<String> {
     let mut request = config_request(CLIENT.post(url));
-    request = request.header(CONTENT_TYPE, "application/json");
-    request = request.body(json_data.to_owned());
+
+    let data = serde_json::json!({
+        "topic": "value1",
+        "payload": "value1"
+    });
+    request = request.json(&data);
     Ok(request.send().await?.text().await?)
 }
