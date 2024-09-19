@@ -4,7 +4,7 @@ pub mod ip;
 
 use anyhow::Result;
 use reqwest::{
-    header::{ACCEPT, CONNECTION, USER_AGENT},
+    header::{ACCEPT, CONNECTION, USER_AGENT,CONTENT_TYPE},
     Client, RequestBuilder,
 };
 use std::sync::LazyLock;
@@ -31,6 +31,7 @@ pub async fn get(url: &str) -> Result<String> {
 /// 发送 POST 请求, 消息体为 json
 pub async fn post_json(url: &str, json_data: &str) -> Result<String> {
     let mut request = config_request(CLIENT.post(url));
-    request = request.json(json_data);
+    request = request.header(CONTENT_TYPE, "application/json");
+    request = request.body(json_data.to_owned());
     Ok(request.send().await?.text().await?)
 }
