@@ -4,7 +4,7 @@ pub mod ip;
 
 use anyhow::Result;
 use reqwest::{
-    header::{ACCEPT, CONNECTION, USER_AGENT,CONTENT_TYPE},
+    header::{ACCEPT, CONNECTION, USER_AGENT},
     Client, RequestBuilder,
 };
 use std::sync::LazyLock;
